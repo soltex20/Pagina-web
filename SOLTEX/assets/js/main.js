@@ -1,13 +1,10 @@
 /**
-* Template Name: Arsha - v2.3.1
-* Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+Author: Yair Salazar Juarez
 */
 !(function($) {
   "use strict";
 
-  // Preloader
+ 
   $(window).on('load', function() {
     if ($('#preloader').length) {
       $('#preloader').delay(100).fadeOut('slow', function() {
@@ -16,7 +13,6 @@
     }
   });
 
-  // Smooth scroll for the navigation menu and links with .scrollto classes
   var scrolltoOffset = $('#header').outerHeight() - 2;
   $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -48,7 +44,6 @@
     }
   });
 
-  // Activate smooth scroll on page load with hash links
   $(document).ready(function() {
     if (window.location.hash) {
       var initial_nav = window.location.hash;
@@ -61,7 +56,7 @@
     }
   });
 
-  // Mobile Navigation
+  // Navegación mobile
   if ($('.nav-menu').length) {
     var $mobile_nav = $('.nav-menu').clone().prop({
       class: 'mobile-nav d-lg-none'
@@ -157,7 +152,6 @@
     offset: '80%'
   });
 
-  // Porfolio isotope and filter
   $(window).on('load', function() {
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item'
@@ -196,8 +190,60 @@
       once: true
     });
   }
+
   $(window).on('load', function() {
     aos_init();
   });
 
 })(jQuery);
+
+// Metodo para enviar mensajes
+
+function enviarMensaje() {
+
+  $(".alerta_correo").css('display', 'none');
+  $(".alerta_mensaje").css('display', 'none');
+  $(".alerta_correo_valido").css('display', 'none')
+  $(".alerta_correo_invalido").css('display', 'none')
+
+  let correo = $("#correo").val();
+  let mensaje = $("#mensaje").val();
+  let validar = 1;
+  let validarCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  if (!validarCorreo.test(correo)) {
+    $(".alerta_correo").css('display', 'block');
+    validar = 0;
+  } 
+
+  if (mensaje.length <= 5) {
+    $(".alerta_mensaje").css('display', 'block');
+    validar = 0;
+  }
+
+
+  if (validar == 1) {
+    let datos = 'correo=' + correo + '&mensaje=' + mensaje;
+    $.ajax({
+      type: "POST",
+      url: "enviar.php",
+      data: datos,
+      success: function(res) {
+        if (parseInt(res) == 1) {
+          $(".alerta_correo_valido").css('display', 'block')
+        } else {
+          $(".alerta_correo_invalido").css('display', 'block')
+
+        }
+      },
+      error: function(res) {
+
+      }
+    })
+  }
+
+}
+
+
+
+
+

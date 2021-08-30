@@ -1837,4 +1837,9 @@ section {
   #footer .credits {
     padding-top: 4px;
   }
+
+}
+
+.alert{
+  display: none;
 }

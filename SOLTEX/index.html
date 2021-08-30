@@ -277,37 +277,34 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="name">Nombre</label>
-                  <input autocomplete="off" type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Por favor ingresa más de 4 carácteres" />
-                  <div class="validate"></div>
+            <div class="container">
+              <h1 class="display-8">Formulario</h1>
+              <form>
+                <div class="form-group">
+                  <input type="email" class="form-control" id="correo" placeholder="Correo electrónico *">
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Correo</label>
-                  <input autocomplete="off" type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Por favor ingresa un correo válido" />
-                  <div class="validate"></div>
+                <div class="alert alert-succes alerta_correo" role="alert">
+                 Ingrese un correo valido
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Asunto</label>
-                <input autocomplete="off" type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Por favor ingresa más de 8 carácteres en el asunto" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <label for="name">Mensaje</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Por favor escribe un mensaje"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Cargando</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Tú mensaje fue enviado. Gracias</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
-            </form>
+                <div class="alert alert-danger alerta_correo_valido" role="alert">
+                  El correo es valido
+                 </div>
+                 <div class="alert alert-warning alerta_invalido" role="alert">
+                  El correo es invalido
+                 </div>
+                <div class="form-group">
+                  <textarea class="form-control" id="mensaje" rows="3" placeholder="Mensaje *"></textarea>
+                  <div class="alert alert-warning alerta_mensaje" role="alert">
+                  El mensaje es muy corto
+                   </div>
+                </div>
+                <div class="form-group">
+                  <a class="btn btn-info btn-lg" role="button" aria-pressed="true" onclick="enviarMensaje();">Enviar</a>
+                </div>
+              </form>
+            </div>
           </div>
+
 
         </div>
 
