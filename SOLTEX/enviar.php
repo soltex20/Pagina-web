@@ -4,7 +4,7 @@ if (isset($_POST['correo']) && isset($_POST['mensaje']) ) {
     $mensaje = $_POST['mensaje'];
 
     $from = $correo;
-    $to = "yair100696@gmail.com";
+    $to = "soltex2021@hotmail.com";
     $subject = "Nuevo mensaje de: ". $correo;
     $message = $mensaje;
     $headers = "From:" . $from;
