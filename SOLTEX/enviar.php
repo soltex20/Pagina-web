@@ -21,7 +21,7 @@ if (isset($_POST['correo']) && isset($_POST['mensaje']) ) {
   // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
   
   $contact->smtp = array(
-    'host' => 'smtp.live.com',
+    'host' => 'smtp-mail.outlook.com',
     'username' => 'soltex2021@hotmail.com',
     'password' => 'soltex20',
     'port' => '587'
