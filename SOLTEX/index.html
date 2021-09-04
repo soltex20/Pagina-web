@@ -282,7 +282,7 @@
               <form action="enviar.php" method="POST">
                 <div class="form">
                   <div class="form-group">
-                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico *" required>
+                    <input type="email" autocomplete="off" class="form-control" id="correo" name="correo" placeholder="Correo electrónico *" required>
                   </div>
                   <div class="alert alert-succes alerta_correo" role="alert">
                    Ingrese un correo valido
@@ -299,7 +299,7 @@
                     El mensaje es muy corto
                      </div>
                   </div>
-                  <button type="submit">Enviar</button>
+                  <button class="btn btn-primary" type="submit">Enviar</button>
                 </div>
               </form>
             </div>
